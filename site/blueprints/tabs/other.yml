@@ -1,0 +1,7 @@
+label: Sonstiges
+icon: settings
+sections:
+  otherContent:
+    type: fields
+    fields:
+      animation: fields/animation

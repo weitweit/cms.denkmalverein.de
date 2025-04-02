@@ -1,0 +1,11 @@
+title: Events Archiv
+icon: archive
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+
+tabs:
+  other: tabs/other

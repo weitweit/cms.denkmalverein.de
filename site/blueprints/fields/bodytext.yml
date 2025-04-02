@@ -1,0 +1,12 @@
+label: Text
+type: writer
+toolbar:
+  inline: false
+nodes:
+  - heading
+  - bulletList
+  - orderedList
+marks:
+  - bold
+  - link
+  - email

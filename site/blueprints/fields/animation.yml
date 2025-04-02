@@ -1,0 +1,7 @@
+label: Footer Animation
+type: select
+options:
+  one: Eins
+  two: Zwei
+  three: Drei
+  no: keine Animation

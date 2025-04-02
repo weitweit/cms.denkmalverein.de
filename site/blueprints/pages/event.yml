@@ -1,0 +1,88 @@
+title: Veranstaltung
+icon: calendar
+
+status:
+  draft: Entwurf
+  listed: Veröffentlicht
+
+num: '{{ page.time.toDate("Ymd") }}'
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              time:
+                label: Zeit
+                type: date
+                required: true
+                display: DD.MM.YYYY
+                time:
+                  format: 24
+                  interval: 5
+              location:
+                label: Adresse
+                type: writer
+                marks: false
+                nodes: false
+                required: true
+                width: 1/4
+              reservation:
+                label: Anmeldelink anzeigen
+                type: toggle
+                default: true
+                width: 1/4
+              max_seats:
+                label: max Anzahl Plätze
+                type: number
+                width: 1/4
+              saloon:
+                label: Salonreihe
+                type: toggle
+                default: false
+                width: 1/4  
+              text: 
+                extends: fields/bodytext
+                label: Beschreibung
+                required: true
+              builder:
+                label: Inhaltsblöcke
+                type: blocks
+                fieldsets:
+                  - bodytext
+                  bodyimage:
+                    label: Bild
+                    fields:
+                      picture: bodyimage
+                      size:
+                        label: Größe
+                        type: select
+                        options:
+                          default: Standard
+                          small: Klein (z.b. Logos)
+                          original: kein Zuschnitt
+                  download:
+                    label: Download-Feld
+                    fields:
+                      text:
+                        label: Text
+                        type: textarea
+                        buttons: false
+                      file:
+                        label: Datei
+                        type: select
+                        options: documents
+                        required: true
+      - width: 1/3
+        sections:
+          files:
+            label: Dateien
+            icon: file
+            type: files
+  other: tabs/other
+            

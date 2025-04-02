@@ -1,0 +1,31 @@
+.k-blocks .k-block-title {
+	margin-bottom: 0.875rem;
+	color: var(--color-gray-600);
+}
+
+.k-blocks .k-block-container {
+	padding-bottom: 1rem;
+}
+
+.k-blocks .k-column {
+	line-height: 1.4;
+}
+
+.anchor,
+.order,
+.alignment,
+.size,
+.textsize {
+	color: var(--color-gray-600);
+	font-size: var(--text-xs);
+	margin-top: 0.1875rem;
+}
+
+.style {
+	color: var(--color-gray-800);
+	margin-top: 0.375rem;
+}
+
+.k-blocks .k-block-container-fieldset-services {
+	padding: 0.25rem 0.5rem;
+}
