@@ -1,0 +1,14 @@
+name: Galerie
+icon: images
+preview: weitweit
+
+tabs:
+  content:
+    label: Inhalt
+    fields:
+      pictures:
+        label: Bilder
+        type: files
+        uploads: image
+        query: page.images
+  secondary: tabs/anchor

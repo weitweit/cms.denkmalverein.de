@@ -93,20 +93,10 @@ panel.plugin("weitweit-blocks-preview/preview", {
             contentImages.push(this.content.image);
           }
 
-          if (this.content.image1) {
-            contentImages.push(this.content.image1);
-          }
-
-          if (this.content.image2) {
-            contentImages.push(this.content.image2);
-          }
-
-          if (this.content.imagesmall) {
-            contentImages.push(this.content.imagesmall);
-          }
-
-          if (this.content.imagelarge) {
-            contentImages.push(this.content.imagelarge);
+          if (this.content.pictures) {
+            for (let i = 0; i < this.content.pictures.length; i++) {
+              contentImages.push(this.content.pictures[i]);
+            }
           }
 
           let images = [];
@@ -129,6 +119,7 @@ panel.plugin("weitweit-blocks-preview/preview", {
               alt: image.alt,
             };
           }
+
           return images;
         },
         previewImagePath() {

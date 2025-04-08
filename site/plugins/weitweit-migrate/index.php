@@ -105,6 +105,7 @@ function migrate()
     // Path to your content directory
     $kirby = kirby();
     $contentDir = $kirby->roots()->content;
+    $kirby->impersonate('kirby');
 
     if (!file_exists($contentDir)) {
         return false;
@@ -120,22 +121,24 @@ function migrate()
     $site = site()->index();
     foreach ($site as $page) {
 
+
         if ($page->text()->isNotEmpty()) {
             $text = $page->text()->kt();
-            $page = $page->update([
+            /*$page = $page->update([
                 'text' => $text,
-            ]);
+            ]);*/
         }
 
         /*
         * builder to block
         */
         $builder = $page->builder();
-        ray((string)$page->title());
 
         if (!$builder) {
             continue;
         }
+
+        ray((string)$page->title());
 
         $builder = $builder->yaml();
         $blocks = [];
@@ -144,12 +147,10 @@ function migrate()
                 continue;
             }
 
-            if ($block['_fieldset'] === 'bodytext') {
-                $value = kirbytext($block['text']);
-                $blocks[] = [
-                    'content' => ['text' => $value],
-                    'type' => $block['_fieldset'],
-                ];
+            $migrateFunction = 'migrate' . $block['_fieldset'] . 'Block';
+
+            if (function_exists($migrateFunction)) {
+                $blocks[] = $migrateFunction($block);
             } else {
                 ray($block)->die();
             }
@@ -165,4 +166,23 @@ function migrate()
     }
 
     //convertBuilderToJson($contentDir);
+}
+
+function migratebodytextBlock($block)
+{
+    ray($block)->label('bodytextBlock');
+    $value = kirbytext($block['text']);
+    return [
+        'content' => ['text' => $value],
+        'type' => $block['_fieldset'],
+    ];
+}
+
+function migrategalleryBlock($block)
+{
+    ray($block)->label('galleryBlock');
+    return [
+        'content' => ['pictures' => $block['pictures']],
+        'type' => $block['_fieldset'],
+    ];
 }
