@@ -1,0 +1,36 @@
+title: Fehler
+icon: alert
+
+options:
+  status: false
+  delete: false
+  url: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              title:
+                label: Title
+                type: text
+              intro:
+                label: Intro
+                type: writer
+                marks: false
+                nodes: false
+              text:
+                label: Text
+                type: writer
+                toolbar:
+                  inline: false
+                marks:
+                  - link
+                nodes: false
+  other: tabs/other

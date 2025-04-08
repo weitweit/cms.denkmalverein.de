@@ -1,0 +1,41 @@
+title: Site
+
+tabs:
+  pages:
+    label: Website
+    icon: dashboard
+    columns:
+      main:
+        width: 2/3
+        sections:
+          contentMain:
+            headline: Inhalt
+            type: pages
+            info: "{{ page.blueprint.title }}"
+            template:
+              - default
+              - donate
+              - monuments-top
+              - safed-list
+              - losses
+              - redirect
+              - form-network
+
+      sidebar:
+        width: 1/3
+        sections:
+          contentHome:
+            headline: Home / Error
+            type: pages
+            image: icon
+            create: false
+            template:
+              - home
+              - error
+  globalData:
+    label: Settings
+    icon: globe
+    columns:
+      - width: 1/1
+        sections:
+          global-settings: sections/global-settings

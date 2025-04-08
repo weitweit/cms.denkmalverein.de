@@ -1,0 +1,83 @@
+title: Home
+icon: home
+
+options:
+  status: false
+  delete: false
+  url: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              title:
+                label: Titel
+                type: text
+              headline_intro:
+                label: Intro
+                type: headline
+
+              intro:
+                label: Text
+                type: textarea
+                buttons: false
+
+              intro_url:
+                label: Verlinkung
+                type: pages
+                multiple: false
+                width: 1/2
+
+              intro_url_title:
+                label: Verlinkungstitel
+                type: text
+                width: 1/2
+
+              headline_disruptor:
+                label: Störer
+                type: headline
+
+              disruptor_url:
+                label: URL
+                type: url
+                width: 1/2
+
+              disruptor_text:
+                label: Text
+                type: text
+                buttons: false
+                width: 1/2
+
+              disruptor_color_scheme:
+                label: Farbschema
+                type: select
+                options:
+                  member: Mitglied werden
+                  blue: Blau
+                default: member
+                width: 1/2
+
+              disruptor_link_blank:
+                label: Link in neuem Fenster öffnen
+                type: toggle
+                width: 1/2
+
+              background:
+                label: Bild
+                type: files
+                help: "Bildmaße: mindestens 2400px breit"
+                required: true
+      - width: 1/3
+        sections:
+          images:
+            label: Bilder
+            type: files
+            upload: image
+  other: tabs/other

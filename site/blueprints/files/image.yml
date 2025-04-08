@@ -1,0 +1,13 @@
+Title: Image
+accept: image/jpeg, image/jpg, image/png
+
+create:
+  width: 3800
+  height: 3800
+
+fields:
+  alt:
+    label: field.blocks.image.alt
+    type: text
+    icon: title
+    width: 1/2
