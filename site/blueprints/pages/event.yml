@@ -53,30 +53,14 @@ tabs:
               post_headline:
                 type: headline
                 label: "Nachbericht"
-              teaser_picture:
-                label: Teaser-Bild
-                type: files
-                uploads: image
-                query: page.images
-                multiple: false
-                help: "Mindestbreite: 1000px"
+              teaser_picture: fields/teaserImage
               builder:
                 label: Inhaltsblöcke
                 type: blocks
                 fieldsets:
                   - bodytext
                   - gallery
-                  bodyimage:
-                    label: Bild
-                    fields:
-                      picture: bodyimage
-                      size:
-                        label: Größe
-                        type: select
-                        options:
-                          default: Standard
-                          small: Klein (z.b. Logos)
-                          original: kein Zuschnitt
+                  - bodyimage
                   download:
                     label: Download-Feld
                     fields:
@@ -95,5 +79,15 @@ tabs:
             label: Dateien
             icon: file
             type: files
+  reservations:
+    label: Anmeldungen
+    icon: ticket
+    sections:
+      reservations:
+        label: Anmeldungen
+        type: pages
+        template: reservation
+        sortBy: time desc
+        limit: 50
   other: tabs/other
             

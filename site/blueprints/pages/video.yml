@@ -1,0 +1,68 @@
+title: Video
+icon: video
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              headline_teaser:
+                label: Teaser
+                type: headline
+
+              teaser_picture: fields/teaserImage
+
+              teaser_text:
+                label: Teaser-Text
+                type: writer
+                required: true
+                nodes: false
+                toolbar:
+                  inline: false
+                marks:
+                  - link
+                  - email
+                  - bold
+
+              headline_content:
+                label: Inhalt
+                type: headline
+
+              builder:
+                label: Inhaltsblöcke
+                type: blocks
+                fieldsets:
+                  - bodytext
+                  - gallery
+                  - bodyimage
+                  - video
+
+              footer_teaser:
+                label: Fußzeile
+                type: headline
+
+              social_sharing:
+                label: Sharing
+                help: Sollen die Share-Links/Icons angezeigt werden?
+                type: toggle
+                width: 1/4
+
+              footer_text:
+                label: Fußzeilentext
+                help: z.B. Links zu Petitionen, Pressemitteilungen,...
+                width: 3/4
+                type: writer
+                nodes: false
+                toolbar:
+                  inline: false
+                marks:
+                  - bold
+                  - link
+                  - email
+
+  other: tabs/other

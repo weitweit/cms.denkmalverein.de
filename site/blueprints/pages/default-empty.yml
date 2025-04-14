@@ -1,0 +1,28 @@
+title: Standard / ohne Inhalt
+icon: corner-up-right-fill
+
+status:
+  draft: Entwurf
+  unlisted: Veröffentlicht aber nicht im Menü
+  listed: Im Menü
+
+options:
+  changeTemplate:
+    - default
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          pages:
+            label: Seiten
+            icon: page
+            type: pages
+            image: icon
+            info: "{{ page.blueprint.title }}"
+            create:
+              - default
+              - default-empty

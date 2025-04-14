@@ -1,0 +1,19 @@
+name: Bild
+icon: image
+preview: weitweit
+
+tabs:
+  content:
+    label: Inhalt
+    fields:
+      picture: fields/bodyimage
+      size:
+        label: Größe
+        type: select
+        required: true
+        default: default
+        options:
+          default: Standard
+          small: Klein (z.b. Logos)
+          original: kein Zuschnitt
+  secondary: tabs/anchor

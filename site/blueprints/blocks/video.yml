@@ -1,0 +1,14 @@
+label: Video
+fields:
+  type:
+    type: select
+    label: Typ
+    required: true
+    default: vimeo
+    options:
+      vimeo: Vimeo
+      youtube: YouTube
+  url:
+    type: url
+    label: Video URL
+    required: true

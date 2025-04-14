@@ -2,7 +2,12 @@ title: Standard
 
 status:
   draft: Entwurf
-  listed: Veröffentlicht
+  unlisted: Veröffentlicht aber nicht im Menü
+  listed: Im Menü
+
+options:
+  changeTemplate:
+    - default-empty
 
 tabs:
   content:
@@ -19,29 +24,9 @@ tabs:
                 type: blocks
                 fieldsets:
                   - bodytext
-                  bodyimage:
-                    label: Bild
-                    fields:
-                      picture: bodyimage
-                      size:
-                        label: Größe
-                        type: select
-                        options:
-                          default: Standard
-                          small: Klein (z.b. Logos)
-                          original: kein Zuschnitt
-                  download:
-                    label: Download-Feld
-                    fields:
-                      text:
-                        label: Text
-                        type: textarea
-                        buttons: false
-                      file:
-                        label: Datei
-                        type: select
-                        options: documents
-                        required: true
+                  - bodyimage
+                  - podcastEmbed
+                  - download
       - width: 1/3
         sections:
           pages:
@@ -52,4 +37,3 @@ tabs:
             create:
               - default
   other: tabs/other
-            

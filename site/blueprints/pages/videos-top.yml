@@ -1,0 +1,41 @@
+title: Videos
+icon: video
+
+options:
+  template: false
+  status: true
+  url: false
+  delete: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              title:
+                label: Titel
+                type: text
+              introText:
+                label: Intro
+                type: writer
+                nodes: false
+                toolbar:
+                  inline: false
+                marks:
+                  - link
+                  - email
+      - width: 1/3
+        sections:
+          pages:
+            label: Seiten
+            icon: page
+            type: pages
+            image: icon
+            create:
+              - video
+  other: tabs/other

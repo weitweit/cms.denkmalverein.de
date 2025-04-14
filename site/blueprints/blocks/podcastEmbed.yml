@@ -1,0 +1,13 @@
+name: Podcast
+icon: podcast
+preview: weitweit
+
+tabs:
+  content:
+    label: Inhalt
+    fields:
+      podcasturl:
+        label: Podcast-URL
+        type: url
+        required: true
+  secondary: tabs/anchor

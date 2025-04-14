@@ -1,0 +1,13 @@
+label: Download-Feld
+fields:
+  text:
+    label: Text
+    type: textarea
+    buttons: false
+  file:
+    label: Datei
+    type: files
+    uploads: document
+    query: page.documents
+    required: true
+    multiple: false

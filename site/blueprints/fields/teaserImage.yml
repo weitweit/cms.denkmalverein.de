@@ -1,0 +1,6 @@
+label: Teaser-Bild
+type: files
+uploads: image
+query: page.images
+multiple: false
+help: "Mindestbreite: 1000px"

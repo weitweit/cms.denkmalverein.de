@@ -1,0 +1,4 @@
+label: Bild
+type: image
+required: true
+help: "Mindestbreite: 1400px"

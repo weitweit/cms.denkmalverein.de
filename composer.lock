@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ab58ea7ece3619f9c797e8e157d384b",
+    "content-hash": "69ef04909bbe30de77a5939ba1e04fd6",
     "packages": [
         {
             "name": "bnomei/kirby3-dotenv",
@@ -330,6 +330,42 @@
                 }
             ],
             "time": "2024-09-19T14:15:21+00:00"
+        },
+        {
+            "name": "estd/kirby-remix-icons",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/veryrobert/kirby-remix-icons.git",
+                "reference": "ce353b79f0860168d29cc1c8ccaf0528a75ae38a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/veryrobert/kirby-remix-icons/zipball/ce353b79f0860168d29cc1c8ccaf0528a75ae38a",
+                "reference": "ce353b79f0860168d29cc1c8ccaf0528a75ae38a",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.1"
+            },
+            "type": "kirby-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Farrelly",
+                    "email": "hi@estd.dev",
+                    "homepage": "https://github.com/veryrobert/kirby-remix-icons"
+                }
+            ],
+            "description": "A Kirby CMS plugin to use Remix Icons.",
+            "support": {
+                "issues": "https://github.com/veryrobert/kirby-remix-icons/issues",
+                "source": "https://github.com/veryrobert/kirby-remix-icons/tree/1.0.0"
+            },
+            "time": "2024-12-18T23:25:51+00:00"
         },
         {
             "name": "filp/whoops",

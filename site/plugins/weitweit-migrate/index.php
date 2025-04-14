@@ -13,92 +13,6 @@ Kirby::plugin('weitweit/migrate', [
     ],
 ]);
 
-function convertBuilderToJson($dir)
-{
-    $files = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS)
-    );
-
-    foreach ($files as $file) {
-        if ($file->getExtension() !== 'txt') {
-            continue;
-        }
-
-        $content = file_get_contents($file->getPathname());
-
-        // Split content into sections
-        $sections = preg_split('/\n----\n/', $content);
-
-        foreach ($sections as &$section) {
-            if (preg_match('/^Builder:\s*$/mi', $section)) {
-                // Found Builder section
-                $lines = explode("\n", $section);
-                $builderContent = [];
-                $currentItem = null;
-                $inItem = false;
-
-                /*foreach ($lines as $line) {
-                    if (preg_match('/^Builder:\s*$/', $line)) {
-                        continue;
-                    }
-
-                    if (preg_match('/^-\s*$/', trim($line))) {
-                        if ($currentItem) {
-                            $builderContent[] = $currentItem;
-                        }
-                        $currentItem = [];
-                        $inItem = true;
-                        continue;
-                    }
-
-                    if ($inItem && preg_match('/^\s+(\w+):\s*(.*)$/', $line, $matches)) {
-                        $key = $matches[1];
-                        $value = trim($matches[2]);
-
-                        // Handle multiline text
-                        if ($value === '|') {
-                            $value = '';
-                            continue;
-                        }
-
-                        // Change _fieldset to type
-                        if ($key === '_fieldset') {
-                            $key = 'type';
-                        }
-
-                        $currentItem[$key] = $value;
-                    } elseif ($inItem && !empty(trim($line))) {
-                        // Append to previous value for multiline text
-                        end($currentItem);
-                        $lastKey = key($currentItem);
-                        $currentItem[$lastKey] .= "\n" . trim($line);
-                    }
-                }
-
-                if ($currentItem) {
-                    $builderContent[] = $currentItem;
-                }
-
-                // Convert to JSON
-                $section = "Builder: " . json_encode($builderContent, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);*/
-            }
-        }
-
-        // Join sections back together
-        $newContent = implode("\n----\n", $sections);
-
-        ray($newContent)->die();
-
-        // Backup original file
-        //copy($file->getPathname(), $file->getPathname() . '.bak');
-
-        // Save new content
-        //file_put_contents($file->getPathname(), $newContent);
-
-        echo "Processed: " . $file->getPathname() . "\n";
-    }
-}
-
 
 function migrate()
 {
@@ -124,9 +38,25 @@ function migrate()
 
         if ($page->text()->isNotEmpty()) {
             $text = $page->text()->kt();
-            /*$page = $page->update([
+            $page = $page->update([
                 'text' => $text,
-            ]);*/
+            ]);
+        }
+
+        if ($page->introText()->isNotEmpty()) {
+            $text = $page->introText()->kt();
+            $page = $page->update([
+                'introText' => $text,
+            ]);
+        }
+
+        if ((string)$page->intendedTemplate() === "reservation") {
+            $dateEvent = $page->parent()->time()->toDate();
+
+            if ($dateEvent < time()) {
+                $page->delete();
+                continue;
+            }
         }
 
         /*
@@ -152,7 +82,7 @@ function migrate()
             if (function_exists($migrateFunction)) {
                 $blocks[] = $migrateFunction($block);
             } else {
-                ray($block)->die();
+                ray($block, $page->intendedTemplate())->die();
             }
         }
 
@@ -164,8 +94,6 @@ function migrate()
             'builder' => $blocks,
         ]);
     }
-
-    //convertBuilderToJson($contentDir);
 }
 
 function migratebodytextBlock($block)
@@ -183,6 +111,37 @@ function migrategalleryBlock($block)
     ray($block)->label('galleryBlock');
     return [
         'content' => ['pictures' => $block['pictures']],
+        'type' => $block['_fieldset'],
+    ];
+}
+
+function migratebodyimageBlock($block)
+{
+    ray($block)->label('bodyimageBlock');
+    return [
+        'content' => [
+            'picture' => $block['picture'],
+            'size' => isset($block['size']) ? $block['size'] : 'default'
+        ],
+        'type' => $block['_fieldset'],
+    ];
+}
+
+function migratepodcastEmbedBlock($block)
+{
+    ray($block)->label('podcastEmbedBlock');
+    return [
+        'content' => ['podcasturl' => $block['podcasturl']],
+        'type' => $block['_fieldset'],
+    ];
+}
+
+
+function migrateVideoBlock($block)
+{
+    ray($block)->label('videoBlock');
+    return [
+        'content' => ['url' => $block['url']],
         'type' => $block['_fieldset'],
     ];
 }

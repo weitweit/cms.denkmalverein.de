@@ -1,0 +1,61 @@
+title: Reservierung
+icon: ticket
+
+options:
+  status: false
+  url: false
+  preview: false
+
+fields:
+  title:
+    label: Titel
+    type: text
+
+  tickets:
+    label: Ticketanzahl
+    type: number
+    required: true
+
+  personalTitle:
+    label: Title (optional)
+    type: text
+    width: 1/2
+
+  institution:
+    label: Institution (optional)
+    type: text
+    width: 1/2
+
+  firstname:
+    label: Vorname
+    type: text
+    required: true
+    width: 1/2
+
+  name:
+    label: Nachname
+    type: text
+    required: true
+    width: 1/2
+
+  email:
+    label: Email
+    type: email
+    required: true
+    width: 1/2
+
+  tel:
+    label: Telefon
+    type: tel
+    width: 1/2
+
+  zip_town:
+    label: PLZ, Ort
+    type: text
+    width: 1/2
+
+  address:
+    label: Adresse
+    type: text
+    required: true
+    width: 1/2

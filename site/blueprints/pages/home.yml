@@ -69,15 +69,18 @@ tabs:
                 type: toggle
                 width: 1/2
 
-              background:
-                label: Bild
-                type: files
-                help: "Bildmaße: mindestens 2400px breit"
-                required: true
       - width: 1/3
         sections:
           images:
             label: Bilder
             type: files
             upload: image
-  other: tabs/other
+  other:
+    extends: tabs/other
+    fields:
+      background:
+        label: Hintergrundbild
+        type: files
+        help: "Bildmaße: mindestens 2400px breit"
+        required: true
+      animation: fields/animation
