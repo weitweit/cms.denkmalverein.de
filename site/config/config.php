@@ -10,7 +10,7 @@ return [
     "debug" => true,
     "panel.install" => true,
     "error" => "z-error",
-    "languages" => true,
+    "languages" => false,
     "frontendUrl" => env("FRONTEND_URL"),
     "auth" => [
         "methods" => ["password", "password-reset"],
