@@ -1,0 +1,37 @@
+- pipeline: "Deploy to moss"
+  on: "EVENT"
+  events:
+    - type: "PUSH"
+      refs:
+        - "refs/heads/main"
+  fail_on_prepare_env_warning: true
+  actions:
+    - action: "Upload files to moss"
+      type: "SFTP"
+      input_type: "SCM_REPOSITORY"
+      remote_path: "/var/www/vhosts/cms.denkmalverein.de"
+      login: "weitweit"
+      host: "86.111.39.12"
+      port: "22"
+      authentication_mode: "WORKSPACE_KEY"
+      deployment_excludes:
+        - "node_modules"
+        - "**/node_modules"
+    - action: "Composer"
+      type: "SSH_COMMAND"
+      working_directory: "/var/www/vhosts/cms.denkmalverein.de"
+      login: "weitweit"
+      host: "86.111.39.12"
+      port: "22"
+      authentication_mode: "WORKSPACE_KEY"
+      commands:
+        - "php8.3 /usr/local/bin/composer install --no-interaction --prefer-dist --optimize-autoloader"
+        - "rm -rf storage/cache/cms.denkmalverein.de/pages"
+      shell: "SH"
+    - action: "Send notification to system channel"
+      type: "SLACK"
+      content: "[#$BUDDY_EXECUTION_ID] $BUDDY_PIPELINE_NAME by <$BUDDY_INVOKER_URL|$BUDDY_INVOKER_NAME>"
+      blocks: '[{"type":"section","fields":[{"type":"mrkdwn","text":"*Branch:* $BUDDY_EXECUTION_BRANCH"},{"type":"mrkdwn","text":"*Project:* <$BUDDY_PROJECT_URL|$BUDDY_PROJECT_NAME>"}]}]'
+      channel: "C01NFBHREBX"
+      channel_name: "system"
+      integration_hash: "Pr1gO3GWpmbkBXJ5azJn4KRjLM"
