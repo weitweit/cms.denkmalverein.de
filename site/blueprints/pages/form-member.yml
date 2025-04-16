@@ -1,0 +1,9 @@
+title: Formular - Mitglied werden
+icon: survey-line
+
+options:
+  preview: true
+  status: false
+  template: false
+  url: false
+  delete: false

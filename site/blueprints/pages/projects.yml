@@ -1,0 +1,34 @@
+title: Projekte
+icon: community-line
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+  move: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          content:
+            type: fields
+            fields:
+              introText:
+                extends: fields/bodytext
+                label: Intro
+          projects:
+            type: pages
+            label: Projekte
+            icon: community
+            info: "{{ page.year }}"
+            image:
+              query: page.teaser_picture.toFile()
+              cover: true
+            template: project
+  other: tabs/other

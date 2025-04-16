@@ -1,4 +1,7 @@
-label: Download-Feld
+name: Download
+icon: download
+preview: weitweit
+
 fields:
   text:
     label: Text

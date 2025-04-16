@@ -1,0 +1,19 @@
+title: Safed List
+
+options:
+  changeTemplate:
+    - safed-top
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          content:
+            type: fields
+            fields:
+              introText:
+                extends: fields/bodytext
+                label: Intro

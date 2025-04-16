@@ -1,0 +1,28 @@
+title: Presseartikel
+icon: newspaper-line
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+  move: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          items:
+            type: pages
+            label: Presseartikel
+            info: "{{ page.date.toDate('d.m.Y') }}"
+            sortBy: date desc
+            image:
+              query: page.teaser_picture.toFile()
+              cover: true
+            template: press-article
+  other: tabs/other

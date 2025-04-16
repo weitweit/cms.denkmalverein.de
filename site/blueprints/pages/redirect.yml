@@ -1,0 +1,11 @@
+title: Weiterleitung
+icon: arrow-right-line
+
+fields:
+  title:
+    label: Titel
+    type: text
+  redirect:
+    label: URL
+    type: link
+    required: true

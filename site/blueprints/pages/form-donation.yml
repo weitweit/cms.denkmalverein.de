@@ -1,0 +1,17 @@
+title: Formular - Spenden
+icon: survey-line
+
+options:
+  preview: true
+  status: false
+  template: false
+  url: false
+  delete: false
+
+fields:
+  descriptionAccount:
+    extends: fields/bodytext
+    label: Beschreibung Konto
+  description:
+    extends: fields/bodytext
+    label: Beschreibung

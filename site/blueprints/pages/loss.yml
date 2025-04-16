@@ -1,0 +1,73 @@
+title: Objekt
+icon: building-2-line
+
+status:
+  draft: Entwurf
+  listed: Veröffentlicht
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              location:
+                label: Adresse
+                type: textarea
+                buttons: false
+                required: true
+                width: 3/4
+              year:
+                label: Jahr
+                type: text
+                width: 1/4
+              builder:
+                label: Inhaltsblöcke
+                type: blocks
+                fieldsets:
+                  - bodytext
+                  - bodyimage
+                  - podcastEmbed
+                  - download
+                  - gallery
+              footer_teaser:
+                label: Fußzeile
+                type: headline
+              social_sharing:
+                label: Sharing
+                help: Sollen die Share-Links/Icons angezeigt werden?
+                type: toggle
+                width: 1/4
+              footer_text:
+                label: Fußzeilentext
+                help: z.B. Links zu Petitionen, Pressemitteilungen,...
+                width: 3/4
+                type: writer
+                nodes: false
+                toolbar:
+                  inline: false
+                marks:
+                  - bold
+                  - link
+                  - email
+      - width: 1/3
+        sections:
+          meta:
+            type: fields
+            fields:
+              teaser_picture:
+                extends: fields/bodyimage
+                label: Teaser-Bild
+                help: "Mindestbreite: 1000px"
+          images:
+            label: Bilder
+            icon: image
+            type: files
+            uploads: image
+            query: page.images
+
+  other: tabs/other

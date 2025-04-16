@@ -22,6 +22,12 @@ panel.plugin("weitweit-blocks-preview/preview", {
           if (this.content.caption) {
             excerpt += `${getStringMaxLength(this.content.caption, 120)}<br>`;
           }
+          if (this.content.podcasturl) {
+            excerpt += `${getStringMaxLength(
+              this.content.podcasturl,
+              120
+            )}<br>`;
+          }
 
           return excerpt;
         },
@@ -71,10 +77,15 @@ panel.plugin("weitweit-blocks-preview/preview", {
             return null;
           }
 
-          if (this.content.size === "full") {
-            return "Full width";
+          if (this.content.size === "original") {
+            return "kein Zuschnitt";
           }
-          return "Small / Portrait";
+
+          if (this.content.size === "small") {
+            return "Klein (z.b. Logos)";
+          }
+
+          return "Standard";
         },
         textsize() {
           if (!this.content.textsize) {
@@ -86,11 +97,24 @@ panel.plugin("weitweit-blocks-preview/preview", {
           }
           return "Groß";
         },
+        file() {
+          if (!this.content.file) {
+            return null;
+          }
+
+          console.log(this.content.file);
+
+          return this.content.file[0].filename;
+        },
         images() {
           let contentImages = [];
 
           if (this.content.image) {
             contentImages.push(this.content.image);
+          }
+
+          if (this.content.picture) {
+            contentImages.push(this.content.picture);
           }
 
           if (this.content.pictures) {
@@ -159,6 +183,7 @@ function getDefaultTemplate() {
             <div class="k-column k-grid" style="--width: 3/4">
               <div class="k-column k-grid" style="--width: 1/1;">
                 <div v-html="excerpt" class="k-column" style="--width: 4/5;"></div>
+                <div v-html="file" class="k-column" style="--width: 4/5;"></div>
                 <div class="k-column" style="--width: 2/5;" v-if="images">
                   <div class="k-grid" style="--columns: 4">
                     <div v-for="image in images" class="k-column">

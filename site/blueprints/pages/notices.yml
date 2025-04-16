@@ -1,0 +1,5 @@
+title: Meldungen
+
+options:
+  changeTemplate:
+    - notices-top

@@ -1,0 +1,60 @@
+title: Presseartikel
+icon: newspaper-line
+
+status:
+  draft: Entwurf
+  listed: Veröffentlicht
+  unlisted: Unveröffentlicht
+
+num: '{{ page.date.toDate("Ymd") }}'
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 2/3
+        sections:
+          content:
+            type: fields
+            fields:
+              date:
+                label: Datum
+                type: date
+                display: dd.mm.yyyy
+                required: true
+                width: 1/3
+              dateUnpublished:
+                label: Ablaufdatum
+                type: date
+                display: dd.mm.yyyy
+                width: 1/3
+              medium:
+                label: Medium
+                type: text
+                width: 1/3
+              teaser_picture:
+                extends: fields/bodyimage
+                label: Teaser-Bild
+                help: "Mindestbreite: 1000px"
+                required: false
+              download:
+                label: Download (PDF oder jpg)
+                type: files
+                uploads: document
+                query: page.documents
+                multiple: false
+              link:
+                label: Externer Link
+                type: url
+                help: Wenn ein Link vorhanden ist wird der Download deaktiviert
+      - width: 1/3
+        sections:
+          images:
+            label: Bilder
+            icon: image
+            type: files
+            uploads: image
+            query: page.images
+
+  other: tabs/other

@@ -17,8 +17,10 @@ tabs:
               - default-empty
               - donate
               - monuments-top
-              - safed-list
-              - losses
+              - safed-top
+              - losses-top
+              - notices-top
+              - press-articles-top
               - redirect
               - form-network
 

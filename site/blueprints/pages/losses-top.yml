@@ -1,0 +1,27 @@
+title: Verlorene Objekte
+icon: building-2-line
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+  move: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          items:
+            type: pages
+            label: Verlorene Objekte
+            info: "{{ page.year }}"
+            image:
+              query: page.teaser_picture.toFile()
+              cover: true
+            template: loss
+  other: tabs/other

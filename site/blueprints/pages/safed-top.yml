@@ -1,0 +1,34 @@
+title: Gerettete Objekte
+icon: building-line
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+  move: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          content:
+            type: fields
+            fields:
+              introText:
+                extends: fields/bodytext
+                label: Intro
+          items:
+            type: pages
+            label: Gerettete Objekte
+            icon: community
+            sortBy: date desc
+            image:
+              query: page.teaser_picture.toFile()
+              cover: true
+            template: safed
+  other: tabs/other

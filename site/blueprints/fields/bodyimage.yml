@@ -1,4 +1,6 @@
 label: Bild
-type: image
+type: files
+uploads: image
+query: page.images
 required: true
 help: "Mindestbreite: 1400px"

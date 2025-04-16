@@ -1,13 +1,8 @@
-title: Standard
-
-status:
-  draft: Entwurf
-  unlisted: Veröffentlicht aber nicht im Menü
-  listed: Im Menü
+title: Donate
 
 options:
   changeTemplate:
-    - default-empty
+    - default
 
 tabs:
   content:

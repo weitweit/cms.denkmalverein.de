@@ -1,0 +1,28 @@
+title: Meldungen
+icon: chat-unread-line
+
+options:
+  template: false
+  status: false
+  url: false
+  delete: false
+  move: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Inhalt
+    icon: page
+    columns:
+      - width: 1/1
+        sections:
+          items:
+            type: pages
+            label: Meldungen
+            icon: community
+            info: "{{ page.date.toDate('d.m.Y') }}"
+            image:
+              query: page.teaser_picture.toFile()
+              cover: true
+            template: notice
+  other: tabs/other
