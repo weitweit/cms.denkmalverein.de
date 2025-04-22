@@ -22,8 +22,6 @@ F::loadClasses(
 	__DIR__
 );
 
-ray("weitweit headless");
-
 class WeitweitHeadless
 {
 	/**

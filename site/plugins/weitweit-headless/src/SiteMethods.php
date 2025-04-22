@@ -32,38 +32,41 @@ class SiteMethods
 
 				return $result;
 			},
+			"getMainMenu" => function () {
+				return getMainMenu();
+			},
+		];
+	}
+}
+
+function getMainMenu()
+{
+	$items = site()->pages()->listed();
+
+	if ($items->isEmpty()) {
+		return null;
+	}
+
+	foreach ($items as $item) {
+		$children = $item->children()->listed();
+		$resultChildren = null;
+
+		if ($children->isNotEmpty()) {
+			$resultChildren = [];
+			foreach ($children as $child) {
+				$resultChildren[] = [
+					"title" => $child->title()->getString(),
+					"url" => "/{$child->uri()}",
+				];
+			}
+		}
+
+		$result[] = [
+			"title" => $item->title()->getString(),
+			"url" => "/{$item->uri()}",
+			"children" => $resultChildren,
 		];
 	}
 
-	public function getMainMenu()
-	{
-		$items = pages()->listed();
-
-		if ($items->empty()) {
-			return null;
-		}
-
-		foreach ($items as $item) {
-			$children = $item->children()->listed();
-			$resultChildren = null;
-
-			if ($children->isNotEmpty()) {
-				$resultChildren = [];
-				foreach ($children as $child) {
-					$resultChildren[] = [
-						"title" => $child->title(),
-						"url" => "/{$child->uri()}",
-					];
-				}
-			}
-
-			$result[] = [
-				"title" => $item->title(),
-				"url" => "/{$item->uri()}",
-				"children" => $resultChildren,
-			];
-		}
-
-		return $result;
-	}
+	return $result;
 }
