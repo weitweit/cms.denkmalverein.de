@@ -10,6 +10,7 @@ loadenv([
 
 F::loadClasses(
 	[
+		"Controllers" => "src/Controllers.php",
 		"Hooks" => "src/Hooks.php",
 		"Routes" => "src/Routes.php",
 		"SiteMethods" => "src/SiteMethods.php",
@@ -63,8 +64,14 @@ class WeitweitHeadless
 	 */
 	private $collections;
 
+	/**
+	 * @var Controllers
+	 */
+	private $controllers;
+
 	public function __construct()
 	{
+		$controllers = new Controllers();
 		$hooks = new Hooks();
 		$routes = new Routes();
 		$sitemethods = new SiteMethods();
@@ -74,6 +81,7 @@ class WeitweitHeadless
 		$blockmethods = new BlockMethods();
 		$collections = new Collections();
 
+		$this->controllers = $controllers();
 		$this->hooks = $hooks();
 		$this->routes = $routes();
 		$this->sitemethods = $sitemethods();
@@ -87,6 +95,7 @@ class WeitweitHeadless
 	public function register()
 	{
 		Kirby::plugin("weitweit/headless", [
+			"controllers" => $this->controllers,
 			"hooks" => $this->hooks,
 			"routes" => $this->routes,
 			"siteMethods" => $this->sitemethods,
