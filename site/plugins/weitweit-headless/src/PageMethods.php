@@ -206,6 +206,9 @@ function getBlocks($item, $blocksField)
 function getMeta($page)
 {
 	$tags = $page->metadata()->snippetData();
+	if ($tags->isEmpty()) {
+		return null;
+	}
 
 	foreach ($tags as $key => $tag) {
 		if (isset($tag["attributes"]["name"]) && strpos($tag["attributes"]["name"], "twitter") !== false) {
