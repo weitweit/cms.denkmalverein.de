@@ -1,0 +1,26 @@
+.k-page-browser li:has([data-type="global-files"]),
+.k-page-browser li:has([data-type="global-icons"]),
+.k-page-browser li:has([data-type="global-videos"]),
+.k-page-browser li:has([data-type="global-images"]) {
+	display: none;
+}
+
+.k-blocks:not([data-empty="true"], [data-disabled="true"]) {
+	background: transparent;
+	box-shadow: none;
+}
+
+.k-blocks-list {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.25rem;
+}
+
+.k-blocks-list .k-block-container {
+	box-shadow: var(--shadow);
+	background: var(--color-white);
+}
+
+.k-block-container:not(:last-of-type) {
+	border-bottom: none;
+}
