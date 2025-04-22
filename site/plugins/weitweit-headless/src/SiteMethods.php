@@ -64,6 +64,7 @@ function getMainMenu()
 		$result[] = [
 			"title" => $item->title()->getString(),
 			"url" => "/{$item->uri()}",
+			"isExpandable" => $children->isNotEmpty(),
 			"children" => $resultChildren,
 		];
 	}
