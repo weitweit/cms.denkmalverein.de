@@ -6,16 +6,16 @@ class Hooks
 {
 	public function __invoke()
 	{
-		$scheme = kirby()->request()->url()->scheme();
+		/*$scheme = kirby()->request()->url()->scheme();
 		$frontendUrl = env("FRONTEND_URL");
 		$url = "{$frontendUrl}/api/revalidate";
 		$validActions = ["update", "create", "changeNum"];
 
 		if (strpos($url, "localhost") !== false) {
 			return [];
-		}
+		}*/
 
-		return [
+		/*return [
 			"page.*:after" => function ($event, $newPage) use ($url, $validActions) {
 				if ((string) $event->action() === "update") {
 					$newPage = getYoutube($newPage);
@@ -47,6 +47,6 @@ class Hooks
 					throw new Exception("Site revalidation failed");
 				}
 			},
-		];
+		];*/
 	}
 }
