@@ -1,5 +1,7 @@
 label: Footer Animation
 type: select
+default: no
+required: true
 options:
   one: Eins
   two: Zwei

@@ -17,6 +17,8 @@ class Controllers
                     $resultUri = "/{$language}/{$uri}";
                 }
 
+                $isFooterAnimation = $page->animation()->getOption();
+
                 return [
                     "json" => [
                         "intendedTemplate" => $intendedTemplate,
@@ -24,6 +26,7 @@ class Controllers
                         "uri" => $uri === "home" ? $resultUriHome : $resultUri,
                         "language" => $language ? $language : "de",
                         "meta" => $page->getMeta(),
+                        "animation" => $isFooterAnimation !== "no" ? $isFooterAnimation : null,
                     ],
                 ];
 

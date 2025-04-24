@@ -49,6 +49,7 @@ function getMainMenu()
 
 	foreach ($items as $item) {
 		$children = $item->children()->listed();
+		ray($item, $children);
 		$resultChildren = null;
 
 		if ($children->isNotEmpty()) {
