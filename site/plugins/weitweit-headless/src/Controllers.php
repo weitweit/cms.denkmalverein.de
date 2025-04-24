@@ -26,7 +26,7 @@ class Controllers
                         "uri" => $uri === "home" ? $resultUriHome : $resultUri,
                         "language" => $language ? $language : "de",
                         "meta" => $page->getMeta(),
-                        "animation" => $isFooterAnimation !== "no" ? $isFooterAnimation : null,
+                        "footerAnimation" => $isFooterAnimation !== "no" ? $isFooterAnimation : null,
                     ],
                 ];
 
