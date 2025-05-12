@@ -21,7 +21,7 @@ class HomePage extends Page
 
         $content["intro"] = [
             "intro" => $this->intro()->getText(),
-            "url" => $this->intro_url()->getText(),
+            "url" => $this->intro_url()->isNotEmpty() ? "/" . (string)$this->intro_url()->toPage()->uri() : null,
             "urlTitle" => $this->intro_url_title()->getText(),
         ];
 
