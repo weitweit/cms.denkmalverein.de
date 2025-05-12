@@ -205,7 +205,19 @@ function getBlocks($item, $blocksField)
 
 function getMeta($page)
 {
-	$tags = $page->metadata()->snippetData();
+
+	return [
+		[
+			"tag" => "title",
+			"content" => [
+				"value" => $page->title()->getText(),
+			],
+		],
+	];
+
+
+
+	/*$tags = $page->metadata()->snippetData();
 	if ($tags->isEmpty()) {
 		return null;
 	}
@@ -226,5 +238,5 @@ function getMeta($page)
 		}
 	}
 
-	return $tags;
+	return $tags;*/
 }
