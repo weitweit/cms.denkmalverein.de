@@ -17,9 +17,6 @@ tabs:
           content:
             type: fields
             fields:
-              title:
-                label: Titel
-                type: text
               headline_intro:
                 label: Intro
                 type: headline
